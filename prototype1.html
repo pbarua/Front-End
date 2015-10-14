@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+<body>
+
+  <script>
+      var tap = {};
+      function storePhi(event, phi) {
+        tap[event] = phi;
+      }
+
+      storePhi("pizza", 0.069);
+      storePhi("touched tree", -0.081);
+      console.log(tap);
+      for ( var x in tap)
+          console.log("value for " + x + " is " + tap[x]);
+     /* Object.prototype.junk = "hi";
+      console.log(tap);
+      for (var name in tap) console.log(name);
+      //for (name in tap) console.log(tap[name]);
+      console.log(Object.getPrototypeOf(tap));
+      Object.defineProperty(Object.prototype, "hiddenJunk",
+                      {enumerable: false, value: "hieo"});
+      for (var name in tap) console.log(name);
+      //for (name in tap) console.log(tap[name]);
+      console.log("explicit " + tap.hiddenJunk);
+      Object.defineProperty(tap, "newJunk", {enumerable: true, value: "heao2"});
+                     
+      for (var name in tap) console.log(name);
+       console.log(tap);
+       console.log("hiddenJunk" in tap);
+
+      for (name in tap) {
+        if (tap.hasOwnProperty(name))
+            console.log(name);
+      }*/
+              
+  </script>
+</body>
+</html>

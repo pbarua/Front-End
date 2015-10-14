@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+<body>
+
+  <script>
+      function Rabbit(type) {
+        this.type = type;
+      }
+
+      var killerRabbit = new Rabbit("killer");
+      var blackRabbit = new Rabbit("black");
+      console.log(blackRabbit.type);
+      
+      Rabbit.prototype.speak = function(l) {
+          console.log("I am the " + this.type + l)
+      }
+      
+      killerRabbit.speak(" talking");
+      console.log(Object.getPrototypeOf(killerRabbit));
+      console.log(killerRabbit.toString());
+  </script>
+</body>
+</html>

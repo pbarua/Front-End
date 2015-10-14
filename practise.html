@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+<body>
+
+  <script>
+
+function gatherCorrelations(journal) {
+  var phis = {};
+  for (var entry = 0; entry < journal.length; entry++) {
+    var events = journal[entry].events;
+    for (var i = 0; i < events.length; i++) {
+      var event = events[i];
+      if (!(event in phis))
+        phis[event] = phi(tableFor(event, journal));
+    };
+  };
+  return phis;
+}      
+
+function mult(a) {
+    return function(b) {
+        return a * b;
+    }
+}
+      
+var mult10 = mult(10);
+console.log(mult10(12));
+      
+function gatherCorrelations(journal) {
+  var phis = {};
+  journal.foreach(function(entry) {
+      entry.events.forEach(function(event) {
+      if (!(event in phis))
+        phis[event] = phi(tableFor(event, journal));
+    });
+  });
+  return phis;
+}      
+      
+
+  </script>
+</body>
+</html>

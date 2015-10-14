@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+<script src="ancestry.js">
+
+</script>        
+</head>
+<body>
+
+
+    
+<script>
+var ancestry = JSON.parse(ANCESTRY_FILE);    
+console.log(ancestry.length);
+/*console.log(ancestry[0]);
+    
+function filter(array) {
+  var passed = [];
+  array.forEach(function(person) {
+       if (person.born > 1900 && person.born < 1925)
+       passed.push(person);
+  })
+  return passed;
+}*/
+var arr = [];
+var li = ancestry.filter(function(person) {
+  return (person.born > 1900 && person.born < 1925);
+    });
+li.forEach(function(nm) {
+    arr.push(nm.name);
+});
+console.log(arr);
+    
+    
+console.log(ancestry.filter(function(person) {
+    return (person.died - person.born > 90);
+    }).map(function(nam) {return nam.name}));
+    
+console.log((ancestry.reduce(function(min, cur) {
+  if (cur.born < min.born) return cur;
+  else return min;
+})).name);
+    
+var tot = ancestry.filter(function(person) {
+    return person.sex == "m";
+}).map(function (p) {
+    return p.died - p.born});
+console.log(tot.reduce(function(a, b) {   
+    return a + b }) / tot.length);
+    
+    
+var tot = ancestry.filter(female).map(age);
+console.log(tot.reduce(function(a, b) {   
+    return a + b }) / tot.length);    
+
+    
+function female(mf) {return mf.sex == "f"};
+function age(a) {return a.died - a.born};
+    
+</script>
+</body>
+</html>

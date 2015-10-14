@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+<body>
+<Input type="text" id="nb" name="numb" autofocus>
+    <button onclick="myFunction()">Submit</button>
+    <p id = "demo"></p>
+  
+  <script>
+  function myFunction() {
+      var num = document.getElementById("nb").value;
+      var rev = num.split("").reverse().join("");  
+               document.getElementById("demo").innerHTML = rev;  
+  }
+     
+  </script>
+</body>
+</html>

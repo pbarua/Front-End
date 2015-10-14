@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+<body>
+  <p id = "demo"></p>
+  
+  <script>
+  var txt = "w3resource";
+  var len = txt.length;
+  setInterval(function () {
+      document.getElementById("demo").innerHTML = txt;
+      txt = txt.substring(len - 1) + txt.substring(0, len - 1)
+  }, 1000);
+  </script>
+</body>
+</html>

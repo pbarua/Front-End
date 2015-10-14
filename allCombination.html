@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+<body>
+<Input type="text" id="nb" name="numb" autofocus>
+    <button onclick="myFunction()">Submit</button>
+    <p id = "demo"></p>
+  
+  <script>
+  function myFunction() {
+      var num = document.getElementById("nb").value;
+      var arr = num.split("");
+      
+      for (i=0; i<num.length; i++) {
+          var txt = arr[i];
+          for (j=0; j<num.length; j++) {
+               if (i === j) { continue; }
+                  txt = txt + arr[j];
+                  var temp = arr.indexOf(txt);
+                  if (temp == -1) {
+                      arr.push(txt);
+                  };
+          };
+      };
+      document.getElementById("demo").innerHTML = arr;  
+  };
+     
+          
+  
+  </script>
+</body>
+</html>

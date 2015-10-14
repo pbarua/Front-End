@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body>
+
+<canvas id="myCanvas" style="border:1px solid #d3d3d3; 
+          margin:0; padding:0; position:absolute;
+          top:0; left:0">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+var c = document.getElementById("myCanvas");
+
+var ctx = c.getContext("2d");
+
+var rectArr = []; 
+
+var myWidth = window.innerWidth;
+var myHeight = window.innerHeight;
+
+var cellWidth = Math.round(myWidth / 100);
+
+ctx.canvas.width  = myWidth;
+ctx.canvas.height = myHeight;
+
+var myWidth = myWidth - cellWidth;
+var myHeight = myHeight - cellWidth;
+
+var xpos = 0.5;
+var ypos = 0.5;
+
+while (xpos < myWidth)   {
+ypos = 0.5;
+
+	while (ypos < myHeight)    {
+	ctx.strokeRect(xpos, ypos, cellWidth, cellWidth);
+	rectArr.push({x:xpos, y:ypos});
+	ypos = ypos + cellWidth;
+	}
+
+xpos = xpos + cellWidth;
+}
+
+c.addEventListener('click', function(event) {
+     var xval = event.pageX,
+         yval = event.pageY;
+
+	rectArr.forEach(function(element) { 
+       if (xval > element.x && xval < element.x + cellWidth 
+           && yval > element.y && yval < element.y + cellWidth) 
+          {var col = ctx.getImageData(xval, yval, 1, 1).data;
+
+           if (col[0] == 255)
+   {ctx.fillStyle="#FFFFFF";
+     ctx.fillRect(element.x, element.y, cellWidth, cellWidth);
+     ctx.strokeRect(element.x, element.y, cellWidth, cellWidth)}
+       else
+       {ctx.fillStyle="#FF0000";
+       ctx.fillRect(element.x, element.y, cellWidth, cellWidth);}
+   }
+                                        });
+                                             }, false);
+
+(function() {
+	 
+	  "use strict";
+	 
+	  document.addEventListener( "contextmenu", function(e) {
+	    console.log(e);
+	  });
+	 
+	})();
+
+
+</script>
+
+<nav id="context-menu" class="context-menu">
+<div id="col">
+<div id="col1"></div>
+<div id="col2"></div>
+<div id="col3"></div>
+<div id="col4"></div>
+<div id="col5"></div>
+</div>
+
+</nav>
+</body>
+</html>

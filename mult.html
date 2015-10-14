@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+<body>
+  
+        1st Number : <input type = "number" id = "first" name="first">
+        2nd Number : <input type = "number" id = "second" name="second">
+    <br>
+        <button onclick="mult()">Multiply</button>
+        <button onclick="div()">Divide</button>     
+    <br>
+    <p id="demo"></p>
+  <script>
+     
+        function mult() {var out = first.value * second.value; 
+                         document.getElementById("demo").innerHTML = out;};
+        function div() {var out = first.value / second.value;
+                        document.getElementById("demo").innerHTML = out;};
+       
+  </script>
+</body>
+</html>

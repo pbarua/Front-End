@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+</script>
+
+</head>
+<body>
+
+<script>
+    
+var songs;
+callGet(function(result) {
+    songs = result;
+});
+        
+function callGet(callBack) {
+$.getJSON("https://itunes.apple.com/search?term=madona&limit=5&media=music&callback=?", function(data) {
+    callBack(data.results);     
+});
+}
+
+    
+</script>
+</body>
+</html>

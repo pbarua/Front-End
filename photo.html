@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+<script src="../Eloquent/ancestry.js">
+
+</script>        
+</head>
+<body>
+<img src="c:\Users\Prayag\Pictures\pic1.png" onMouseover="zoom();" id="me" onMouseout="norm();" 
+     height="10" width="auto">
+
+<script>
+    
+var imgSrc = document.getElementById("me"),
+    the_timer,
+    ht = 10;
+
+function zoom() {  
+    if (ht < 500) {
+        ht +=1
+        imgSrc.style.height = ht;
+        the_timer = setTimeout(zoom, 10);
+    }
+}
+    
+function norm() {
+    imgSrc.style.height = "10";
+};
+    
+/*function delay(x) {
+    var today = new Date();
+    var now = today.getTime();
+    var mili = 0;
+    while (mili < x) {
+        var d = new Date();
+        var mili = d.getTime() - now;
+    }
+};*/
+</script>
+</body>
+</html>
